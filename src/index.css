@@ -13,3 +13,11 @@
   font-size: 16px;
   line-height: 1.5;
 }
+
+@keyframes clickhand {
+  0%, 100% { transform: scale(1);}
+  50% { transform: scale(1.2);}
+}
+.animate-clickhand {
+  animation: clickhand 1s infinite;
+}

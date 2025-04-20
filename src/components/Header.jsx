@@ -25,7 +25,7 @@ const Header = () => {
     }, [lastScrollY]);
     
     return (
-        <header className={`fixed top-0 w-full shadow-md z-[999] bg-white transition-transform duration-300 max-h-58 md:max-h-36 ${
+        <header className={`fixed top-0 w-full shadow-md z-20 bg-white transition-transform duration-300 max-h-58 md:max-h-40 ${
             isVisible ? 'translate-y-0' : '-translate-y-full'
         }`}>
             <HeaderTop />

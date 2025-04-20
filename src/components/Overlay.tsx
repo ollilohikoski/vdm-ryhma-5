@@ -2,7 +2,7 @@ import React from 'react';
 
 const Overlay = () => (
     <div
-        className="absolute z-10 left-0 w-full h-screen opacity-40 bg-black pointer-events-none top-full"
+        className="absolute z-10 left-0 w-full min-h-screen opacity-40 bg-black pointer-events-none top-full"
     />
 );
 
