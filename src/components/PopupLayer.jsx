@@ -2,23 +2,21 @@ import React from "react";
 import topBow from "../assets/top-bow.png";
 import clickHand from "../assets/click-hand.png";
 
-const PopupLayer = () => {
-    const [isVisible, setIsVisible] = React.useState(true);
+const PopupLayer = ({isOpen, setIsOpen}) => {
 
-    if (!isVisible) return null;
+    if (!isOpen) return null;
     return (
         <>
-            <div className="fixed top-0 left-0 w-full h-screen z-40 flex flex-col justify-center items-center pointer-events-none">
+            <div className="fixed top-0 left-0 w-full h-screen z-40 flex flex-col justify-center animate-fadeInPopup opacity-0 items-center pointer-events-none">
                 <img src={topBow} alt="coupon-new-user-header" className="w-full max-w-sm z-50" />
                 <div
                     className="bg-white text-center shadow-lg rounded-lg overflow-hidden max-w-sm w-full pointer-events-auto -mt-4 z-50"
                 >
                     <div className="relative mb-4 flex items-center justify-center py-3" style={{ background: "linear-gradient(179deg,#ffe2cc 0.47%,#fff 99.51%)", width: "100%" }}>
                         <h2 className="text-[#a63e00] font-extrabold text-xl">Special Deals Just for You</h2>
-                        <button className="absolute right-4 top-4" onClick={() => setIsVisible(false)}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M3.75741 12.2421L12.2427 3.75685" stroke="#959595" strokeWidth="1.5"></path>
-                                <path d="M3.75738 3.7579L12.2427 12.2432" stroke="#959595" strokeWidth="1.5"></path>
+                        <button className="absolute right-4 top-4" onClick={() => setIsOpen(false)}>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-black hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
                     </div>
@@ -69,7 +67,7 @@ const PopupLayer = () => {
                     </div>
                     
                     <div className="mt-4 pt-4 border-t border-gray-200 px-4 pb-6">
-                        <button className="bg-black text-white py-3 px-14 rounded-full font-medium" onClick={() => setIsVisible(false)}
+                        <button className="bg-black text-white py-3 px-14 rounded-full font-medium" onClick={() => setIsOpen(false)}
                         >
                             Collect All
                         </button>
@@ -80,10 +78,9 @@ const PopupLayer = () => {
                         />
                     </div>
                 </div>
-                <p className="text-xs text-white mt-3">Coupons confirmed after login</p>
-
+                <p className="text-xs text-white mt-3 z-30">Coupons confirmed after login</p>
             </div>
-            <div className="fixed z-30 top-0 left-0 w-full h-screen opacity-85 bg-black pointer-events-none"/>
+            <div className="fixed z-30 top-0 left-0 w-full h-screen opacity-0 bg-black pointer-events-none animate-fadeInBackground"/>
         </>
     )
 }
