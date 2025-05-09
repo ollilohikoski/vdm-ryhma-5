@@ -39,7 +39,7 @@ const Header = () => {
                 <CategoryMenu />
             </div>
         </header>
-        <div className='mt-58 sm:mt-40' />
+        <div className='mt-35 lg:mt-40' />
         </>
     );
 };
