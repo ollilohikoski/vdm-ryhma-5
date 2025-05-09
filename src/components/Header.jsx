@@ -12,7 +12,9 @@ const Header = () => {
     React.useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
-            if (currentScrollY > 300) {
+            if (currentScrollY > window.innerHeight) {
+                setIsVisible(false);
+            } else if (currentScrollY > 300) {
                 setIsVisible(currentScrollY < lastScrollY);
             } else {
                 setIsVisible(true);
