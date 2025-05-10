@@ -11,7 +11,7 @@
   text-align: center;
   padding: 30px 35px;
   background-color: rgba(10, 10, 10, 0.7); 
-  max-width: 700px; 
+  max-width: 650px; 
   width: 90%; 
   box-shadow: 0 8px 25px rgba(0,0,0,0.5);
   border: 1px solid rgba(218, 247, 166, 0.1); 
@@ -116,6 +116,7 @@
   border-radius: 10px;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   transition: background-color 0.2s, border-color 0.2s;
 }
 
@@ -128,6 +129,10 @@
 .survey-component .questions-page .option-item input[type="checkbox"] {
   margin-right: 18px; 
   transform: scale(1.35);
+  transform-origin: left center;
+  vertical-align: middle;
+  position: relative;
+  top: 1px;
   accent-color: #A3B18A;
   flex-shrink: 0;
 }

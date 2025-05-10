@@ -60,22 +60,82 @@ export default function FashionSurvey() {
     let environmentalImpact = 'Pienempi';
     let customTips = ['Hienoa, jatka samaan malliin!', 'Tutustu vaatteiden korjausmahdollisuuksiin.'];
 
+    const { favMaterials, ecoImportance } = userChoices;
+
     if (userChoices.itemsPerYear === 'Yli 50' && userChoices.howOftenShop === 'Viikoittain') {
       profileType = 'Muodin edelläkävijä';
       profileDescription = 'Vaatekaappisi elää trendien mukana ja päivittyy tiheään.';
       environmentalImpact = 'Huomattava';
       customTips = ['Kokeile vaatehaastetta: kuukausi ilman uusia ostoksia.', 'Löydä iloa vaatteiden vuokraamisesta tai lainaamisesta.', 'Pysähdy hetkeksi: onko tämä todella tarpeellinen hankinta?'];
-    } else if (userChoices.oldClothesAction.includes('Heitän roskiin') && (userChoices.ecoImportance === 'En juurikaan mieti asiaa' || userChoices.ecoImportance === 'Ei vaikuta ostopäätöksiini lainkaan')) {
+      
+      if (favMaterials.includes('Polyesteri') && !favMaterials.includes('Kierrätetyt materiaalit')) {
+        profileDescription += ' Suosikkimateriaalisi, kuten polyesteri, voi lisätä pikamuodin ympäristötaakkaa.';
+        customTips.push('Vaikka seuraat trendejä, yritä etsiä kestävämpiä materiaaleja, kuten kierrätettyä polyesteria tai luomupuuvillaa.');
+      } else if (favMaterials.includes('En kiinnitä huomiota materiaaleihin')) {
+        profileDescription += ' Et myöskään kiinnitä huomiota materiaaleihin, mikä voi johtaa vähemmän kestäviin valintoihin.';
+        customTips.push('Pysähdy hetkeksi miettimään myös vaatteiden materiaaleja ja niiden vaikutuksia.');
+      }
+
+    } else if (userChoices.oldClothesAction.includes('Heitän roskiin') && (ecoImportance === 'En juurikaan mieti asiaa' || ecoImportance === 'Ei vaikuta ostopäätöksiini lainkaan')) {
       profileType = 'Pragmaattinen pukeutuja';
       profileDescription = 'Arvostat vaatteissa käytännöllisyyttä etkä niinkään murehdi niiden elinkaarta.';
       environmentalImpact = 'Kohtalainen';
       customTips = ['Pienikin teko auttaa: kokeile lahjoittaa tai myydä käyttämättömät vaatteesi.', 'Tutustu brändeihin, jotka panostavat kestävyyteen.', 'Laadukas vaate kestää pidempään ja säästää luontoa.'];
-    } else if (userChoices.monthlySpend === 'Yli 100€' && userChoices.ecoImportance === 'Erittäin tärkeää - vaikuttaa ostopäätöksiini') {
+
+      if (favMaterials.includes('En kiinnitä huomiota materiaaleihin')) {
+        profileDescription += ' Et myöskään juuri pohdi materiaalien ympäristövaikutuksia.';
+        environmentalImpact = 'Kohtalainen tai suurempi';
+        customTips.push('Tutustu eri materiaalien ympäristövaikutuksiin – pieni tietoisuus voi ohjata parempiin valintoihin.');
+      } else if (favMaterials.includes('Polyesteri') && favMaterials.length === 1) { 
+        profileDescription += ' Suosimalla pääasiassa polyesteriä, vaatevalintojesi ympäristövaikutus voi olla isompi.';
+        environmentalImpact = 'Kohtalainen tai suurempi';
+        customTips.push('Harkitse luonnonkuitujen tai kierrätettyjen materiaalien osuuden lisäämistä vaatekaapissasi.');
+      }
+
+    } else if (userChoices.monthlySpend === 'Yli 100€' && ecoImportance === 'Erittäin tärkeää - vaikuttaa ostopäätöksiini') {
       profileType = 'Eettinen sijoittaja';
       profileDescription = 'Olet valmis panostamaan laatuun ja eettisyyteen vaatevalinnoissasi.';
       environmentalImpact = 'Pieni';
       customTips = ['Mahtavaa, jatka valitsemallasi tiellä!', 'Etsi ja tue paikallisia, vastuullisia suunnittelijoita ja valmistajia.'];
+
+      if (favMaterials.includes('Kierrätetyt materiaalit') || favMaterials.includes('Pellava') || favMaterials.includes('Villa')) {
+        profileDescription += ' Suosit myös kestäviä ja laadukkaita materiaaleja, mikä on erinomainen yhdistelmä eettisyyden kanssa.';
+        customTips.push('Jatkaessasi näin olet todellinen kestävän muodin edelläkävijä!');
+      } else if (favMaterials.includes('En kiinnitä huomiota materiaaleihin')) {
+        customTips.push('Vaikka panostat eettisyyteen, materiaalivalintoihin perehtyminen voisi tehostaa positiivista vaikutustasi entisestään.');
+      } else if (favMaterials.includes('Polyesteri') && !favMaterials.includes('Kierrätetyt materiaalit')) {
+        customTips.push('Harkitse, voisitko korvata osan polyesteri-hankinnoistasi luonnonkuiduilla tai kierrätetyillä vaihtoehdoilla tukeaksesi ekologisuutta vielä paremmin.');
+      }
+    } else {
+        if (
+            (ecoImportance === 'Erittäin tärkeää - vaikuttaa ostopäätöksiini' || ecoImportance === 'Melko tärkeää - huomioin joskus') &&
+            (favMaterials.includes('Kierrätetyt materiaalit') || favMaterials.includes('Pellava') || favMaterials.includes('Villa')) &&
+            !favMaterials.includes('En kiinnitä huomiota materiaaleihin')
+        ) {
+            profileType = 'Materiaalitietoinen Vastuunkantaja';
+            profileDescription = 'Kiinnität huomiota vaatteiden ekologisuuteen ja teet tietoisia materiaalivalintoja, suosien kestävämpiä vaihtoehtoja.';
+            environmentalImpact = 'Pienempi';
+            customTips = [
+                'Hienoa, että materiaalivalinnat ovat sinulle tärkeitä ekologisuuden kannalta!',
+                'Tutustu lisää eettisiin sertifikaatteihin (esim. GOTS, Fair Trade) valitsemillesi materiaaleille.',
+                'Jaa tietämystäsi kestävistä materiaaleista ja innosta muitakin.'
+            ];
+            if (favMaterials.includes('Puuvilla') && !favMaterials.includes('Kierrätetyt materiaalit') && !ecoImportance.startsWith('Erittäin')) {
+                 customTips.push('Jos suosit puuvillaa, harkitse luomupuuvillan tai kierrätetyn puuvillan etsimistä sen ympäristövaikutusten pienentämiseksi.');
+            }
+        } else if (profileType === 'Tarkkaavainen kuluttaja') {
+            if (favMaterials.includes('Kierrätetyt materiaalit') && (ecoImportance === 'Erittäin tärkeää - vaikuttaa ostopäätöksiini' || ecoImportance === 'Melko tärkeää - huomioin joskus')) {
+                profileDescription = 'Olet tarkkaavainen kuluttaja, joka tekee tietoisia valintoja ja suosii kestäviä materiaaleja. Hienoa!';
+                customTips.unshift('Jatka hyvää työtä kestävien materiaalien parissa!');
+            } else if (favMaterials.includes('En kiinnitä huomiota materiaaleihin') && !(ecoImportance === 'Erittäin tärkeää - vaikuttaa ostopäätöksiini')) {
+                customTips.push('Voisit syventyä materiaalivalintoihin vielä enemmän – se voi auttaa tekemään entistä kestävämpiä päätöksiä.');
+            } else if (favMaterials.includes('Polyesteri') && !favMaterials.includes('Kierrätetyt materiaalit') && favMaterials.length < 3) { 
+                 customTips.push('Kiinnitä huomiota polyesterin määrään vaatekaapissasi ja harkitse sen korvaamista kestävämmillä vaihtoehdoilla aina kun mahdollista.');
+            }
+        }
     }
+
+
     return { profileType, profileDescription, environmentalImpact, customTips, yearlyItems: userChoices.itemsPerYear || 'Ei tietoa' };
   };
 
@@ -159,7 +219,7 @@ export default function FashionSurvey() {
     return (
       <div className="survey-component page-container results-page" style={pageStyleSettings}>
         <div className="content-wrapper">
-          <h1>Pikamuoti Wrapped{new Date().getFullYear()}</h1>
+          <h1>Pikamuoti Wrapped {new Date().getFullYear()}</h1>
           <div className="result-section">
             <h2>Henkilökohtainen profiilisi:</h2>
             <p className="user-type">{finalResults.profileType}</p>
@@ -168,7 +228,8 @@ export default function FashionSurvey() {
           <div className="result-section">
             <h3>Muotifaktojasi:</h3>
             <p>Vaatteita vuodessa: {finalResults.yearlyItems}</p>
-            <p>Suhtautuminen ekologisuuteen: {userChoices.ecoImportance}</p>
+            <p>Suhtautuminen ekologisuuteen: {userChoices.ecoImportance || 'Ei tietoa'}</p>
+            <p>Mieluisimmat materiaalit: {(userChoices.favMaterials && userChoices.favMaterials.length > 0) ? userChoices.favMaterials.join(', ') : 'Ei valittu'}</p>
             <p>Ympäristövaikutus (arvioitu): {finalResults.environmentalImpact}</p>
           </div>
           <div className="result-section">
