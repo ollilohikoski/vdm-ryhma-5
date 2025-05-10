@@ -1,13 +1,18 @@
 import React from 'react';
 import './SaleBanner.css';
 import SaleLogo from '../assets/sale-logo.webp';
+import sale1 from '../assets/sale/sale1.png';
+import sale2 from '../assets/sale/sale2.png';
+import sale3 from '../assets/sale/sale3.png';
+import sale4 from '../assets/sale/sale4.png';
+import sale5 from '../assets/sale/sale5.png';
 
 const products = [
-    { id: 1, price: 9.99, imageUrl: SaleLogo, discount: '-20%' },
-    { id: 2, price: 14.99, imageUrl: SaleLogo, discount: '-15%' },
-    { id: 3, price: 19.99, imageUrl: SaleLogo, discount: '-10%' },
-    { id: 4, price: 24.99, imageUrl: SaleLogo, discount: '-25%' },
-    { id: 5, price: 29.99, imageUrl: SaleLogo, discount: '-30%' },
+    { id: 1, price: 9.99, imageUrl: sale1, discount: '-20%' },
+    { id: 2, price: 14.99, imageUrl: sale2, discount: '-15%' },
+    { id: 3, price: 19.99, imageUrl: sale3, discount: '-10%' },
+    { id: 4, price: 24.99, imageUrl: sale4, discount: '-25%' },
+    { id: 5, price: 29.99, imageUrl: sale5, discount: '-30%' },
 ];
 
 const SaleBanner = () => {

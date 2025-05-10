@@ -1,4 +1,5 @@
 import "./ProductCategories.css";
+import jumpsuit from "../assets/product/jumpsuit.png";
 
 const placholderImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQye9kPfMG92VKMdNp7Drx_xBGVh6UOeOG6ig&s";
 
@@ -10,7 +11,7 @@ const categories = [
   { title: "Dresses", imgSrc: placholderImage, emphasize: true },
   { title: "Beachwear", imgSrc: placholderImage, emphasize: true },
   { title: "Tops", imgSrc: placholderImage },
-  { title: "Jumpsuits & Co-ords", imgSrc: placholderImage },
+  { title: "Jumpsuits & Co-ords", imgSrc: jumpsuit },
   { title: "Bottoms", imgSrc: placholderImage },
   { title: "Suits", imgSrc: placholderImage },
   { title: "Lingerie & Loungewear", imgSrc: placholderImage },
