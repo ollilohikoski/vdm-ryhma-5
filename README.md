@@ -10,3 +10,9 @@ Currently, two official plugins are available:
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+Tuomaksen tehtävät:
+Osa kampanjakuvien etsimisestä, tietovisapelin grafiikan suunnittelu figmassa, tietovisapelin toiminta ja grafiikka (surveypage.jsx ja surveypage.css)
+Työtunnit: figman suunnittelu 4-5h
+Koodaaminen: 10-15h
+
