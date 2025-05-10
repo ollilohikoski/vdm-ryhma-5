@@ -21,7 +21,7 @@ const SaleBanner = () => {
             <div className="promo-banner">
                 <div className="header">
                     <div className="logo-container">
-                        <a href="#shop" className="logo-link">
+                        <a className="logo-link">
                             <img 
                                 src={SaleLogo} 
                                 alt="Sale Logo" 

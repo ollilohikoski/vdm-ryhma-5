@@ -90,7 +90,7 @@ export default function About() {
                         <img src={YoutubeLogo} alt="Youtube" style={{ width: '60px', margin: '0 0px' }} />
                         <img src={TiktokLogo} alt="TikTok" style={{ width: '30px', margin: '0 15px' }} />
                     </div>
-                    <p>@kampanjannimi</p>
+                    <p>@halpanyt</p>
 
                     <div className="some">
                         <div className="some-item">
@@ -113,7 +113,7 @@ export default function About() {
                 </div>
                 <div className='footer-section'>
                     <p className='footer-heading'>Yhteystiedot</p>
-                    <p>kampanjannimi@gmail.com</p>
+                    <p>halpanyt@gmail.com</p>
                 </div>
                 <div className='footer-section'>
                     <p className='footer-heading'>Seuraa meitä</p>
