@@ -1,0 +1,117 @@
+.product-categories {
+    background-color: white;
+    margin: 0 auto;
+    max-width: 1400px;
+    padding: 20px 56px;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+@media (max-width: 768px) {
+    .product-categories {
+        padding: 20px 20px;
+    }
+    
+    .categories-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+    
+    .category-item {
+        height: 60px;
+    }
+    
+    .category-image {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .category-title {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .categories-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+    
+    .category-item {
+        height: 50px;
+        padding: 0 10px 0 0;
+    }
+    
+    .category-image {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .category-title {
+        font-size: 12px;
+        margin-left: 10px;
+    }
+}
+
+.category-item {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 40px;
+    height: 80px;
+    padding: 0 15px 0 0;
+    background-color: #f9f9f9;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+}
+
+.category-item:hover {
+    transform: scale(1.02);
+}
+
+.category-image {
+    min-width: 80px;
+    height: 80px;
+    border: #333 2px solid;
+    border-radius: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.category-image img {
+    width: 70px;
+    height: 70px;
+    object-fit: fill;
+}
+
+.category-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin-left: 15px;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.category-emphasize {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #e63946;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+}

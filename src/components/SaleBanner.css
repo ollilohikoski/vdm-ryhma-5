@@ -1,0 +1,119 @@
+.sale-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.promo-banner {
+    background: linear-gradient(to bottom, #FFDEC9, white);
+    padding: 20px 13px;
+    border-radius: 8px;
+    max-width: 1400px;
+    margin: 8px 48px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo-container {
+    width: 145px;
+    height: 32px;
+}
+
+.logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.view-more {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #5e3333;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.arrow-icon {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    overflow-x: hidden;
+    padding-bottom: 20px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+    width: 100%;
+}
+
+.image-wrapper {
+    position: relative;
+    aspect-ratio: 1/1;
+    background: #f9f9f9;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #ff5555;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 13.6px;
+    box-shadow: 0 1.6px 4.8px rgba(0, 0, 0, 0.2);
+}
+
+.product-info {
+    padding: 15px 11px;
+}
+
+.price-container {
+    margin-bottom: 9.6px;
+}
+
+.current-price {
+    color: #ff5555;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 0.32px;
+}
+
+@media (max-width: 768px) {
+    .promo-banner {
+        margin: 8px 20px;
+        padding: 20px 10px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
