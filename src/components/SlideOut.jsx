@@ -1,13 +1,13 @@
 import salePicture from '../assets/sale-picture.webp';
 
-const SlideOut = ({ isOpen, setIsOpen }) => {
+const SlideOut = ({ isOpen, setIsOpen, isLeft = false, topPosition = 'top-2/5' }) => {
     return (
         <div
-            className={`fixed top-1/2 right-0 z-50 flex transition-transform duration-300 ${
-                isOpen ? 'translate-x-0' : 'translate-x-full'
+            className={`fixed ${topPosition} ${isLeft ? 'left-0' : 'right-0'} z-50 flex transition-transform duration-300 ${
+                isOpen ? 'translate-x-0' : isLeft ? '-translate-x-full' : 'translate-x-full'
             }`}
         >
-            <div className="flex flex-row h-fit w-fit">
+            <div className={`flex h-fit w-fit ${isLeft ? 'flex-row-reverse' : 'flex-row'}`}>
                 <div className="bg-black w-10 relative flex flex-col justify-center items-center">
                     <button
                         onClick={() => setIsOpen(false)}
@@ -36,7 +36,7 @@ const SlideOut = ({ isOpen, setIsOpen }) => {
                             />
 
                             <button
-                                className="w-full sm:flex-1 bg-yellow-500 text-black py-2 border border-black font-semibold uppercase tracking-widest text-sm sm:text-base"
+                                className="w-full sm:flex-1 bg-yellow-500 text-black px-2 py-2 border border-black font-semibold uppercase tracking-widest text-sm sm:text-base"
                                 onClick={() => setIsOpen(false)}
                             >
                                 Register

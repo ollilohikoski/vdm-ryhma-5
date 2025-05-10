@@ -67,8 +67,7 @@ const PopupLayer = ({isOpen, setIsOpen}) => {
                     </div>
                     
                     <div className="mt-4 pt-4 border-t border-gray-200 px-4 pb-6">
-                        <button className="bg-black text-white py-3 px-14 rounded-full font-medium" onClick={() => setIsOpen(false)}
-                        >
+                        <button className="bg-black text-white py-3 px-14 rounded-full font-medium" onClick={() => alert("You must be logged in to collect coupons!")} >
                             Collect All
                         </button>
                     
