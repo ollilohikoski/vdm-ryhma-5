@@ -28,7 +28,7 @@ const Header = () => {
     
     return (
         <>
-        <header className={`fixed top-0 w-full shadow-md z-20 bg-white transition-transform duration-300 max-h-58 md:max-h-40 ${
+        <header className={`fixed top-0 w-full shadow-md z-20 bg-white transition-transform duration-300 ${
             isVisible ? 'translate-y-0' : '-translate-y-full'
         }`}>
             <HeaderTop />
@@ -41,7 +41,7 @@ const Header = () => {
                 <CategoryMenu />
             </div>
         </header>
-        <div className='mt-58 sm:mt-35 lg:mt-40' />
+        <div className='mt-66 sm:mt-44 lg:mt-48' />
         </>
     );
 };
