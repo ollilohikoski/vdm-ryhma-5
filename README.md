@@ -13,7 +13,7 @@ Työtunnit: 10 h Ohjelmointi
 
 Iisakki: Tekstisisällön luominen ja asetteleminen, Videon suunnitteleminen, Shein-parodia osion sisältö, eli tuotekategoriat ja diiliosiot luominen (SaleBanner.jsx, ProductCategories.jsx) n.10-15h yhteensä ohjelmointia ja muuta.
 
-Vilho: Somejulkaisuiden suunnitteleminen ja luominen, parodian alla olevan about osion luominen figman designin mukaisesti. (About.jsx) n.10h
+Vilho: Somejulkaisuiden suunnitteleminen ja luominen, tekstin tuottaminen ufflifestyle-osioon parodian alla olevan about osion luominen figman designin mukaisesti. (About.jsx) n.10h
 
 Emma: UX ja UI suunnittelu, eli mitä sivulla on, miltä se näyttää ja toteutus Figmaan. Tästä syystä ei ole committeja.
 Työtunnit: n. 10h
